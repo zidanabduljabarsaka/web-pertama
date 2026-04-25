@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1777088012905,
+      "tag": "0000_peaceful_siren",
+      "breakpoints": true
+    }
+  ]
+}
