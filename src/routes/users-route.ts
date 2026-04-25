@@ -38,6 +38,9 @@ export const usersRoute = new Elysia({ prefix: "/api" })
         throw new Error("Unauthorized");
       }
       const token = authHeader.split(' ')[1];
+      if (!token) {
+        throw new Error("Unauthorized");
+      }
       const result = await getCurrentUser(token);
       return result;
     } catch (error: any) {
@@ -45,4 +48,5 @@ export const usersRoute = new Elysia({ prefix: "/api" })
       return { error: "Unauthorized" };
     }
   });
+
 

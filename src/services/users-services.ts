@@ -35,18 +35,20 @@ export const loginUser = async (data: any) => {
   const { email, password } = data;
 
   // Find user
-  const user = await db
+  const result = await db
     .select()
     .from(users)
     .where(eq(users.email, email))
     .limit(1);
 
-  if (user.length === 0) {
+  const foundUser = result[0];
+
+  if (!foundUser) {
     throw new Error("Email atau password salah");
   }
 
   // Compare password
-  const isMatch = await bcrypt.compare(password, user[0].password);
+  const isMatch = await bcrypt.compare(password, foundUser.password);
   if (!isMatch) {
     throw new Error("Email atau password salah");
   }
@@ -57,11 +59,12 @@ export const loginUser = async (data: any) => {
   // Save token
   await db.insert(tokens).values({
     token,
-    userId: user[0].id,
+    userId: foundUser.id,
   });
 
   return { data: token };
 };
+
 
 export const getCurrentUser = async (token: string) => {
   const session = await db
