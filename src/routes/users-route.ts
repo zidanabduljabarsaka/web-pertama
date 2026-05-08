@@ -19,6 +19,7 @@ export const usersRoute = new Elysia({ prefix: "/api" })
   })
   .post("/users/login", async ({ body, set }) => {
     try {
+      // Execute login business logic
       const result = await loginUser(body);
       return result;
     } catch (error: any) {

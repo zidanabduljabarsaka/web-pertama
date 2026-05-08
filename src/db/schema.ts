@@ -10,8 +10,8 @@ export const users = mysqlTable("users", {
 
 export const tokens = mysqlTable("tokens", {
   id: serial("id").primaryKey(),
-  token: varchar("token", { length: 255 }).notNull(),
-  userId: int("user_id").notNull(),
+  token: varchar("token", { length: 255 }).notNull().unique(),
+  userId: int("user_id").notNull().references(() => users.id),
   createdAt: timestamp("created_at").defaultNow(),
 });
 

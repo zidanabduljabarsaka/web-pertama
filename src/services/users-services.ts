@@ -34,7 +34,7 @@ export const registerUser = async (data: any) => {
 export const loginUser = async (data: any) => {
   const { email, password } = data;
 
-  // Find user
+  // Find user by email
   const result = await db
     .select()
     .from(users)

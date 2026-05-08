@@ -15,6 +15,20 @@
       "when": 1777100586946,
       "tag": "0001_overconfident_microchip",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1777102449787,
+      "tag": "0002_nebulous_spencer_smythe",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1778243325958,
+      "tag": "0003_pink_giant_girl",
+      "breakpoints": true
     }
   ]
 }
